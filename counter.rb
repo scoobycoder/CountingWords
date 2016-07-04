@@ -57,9 +57,7 @@ class Counter
     replace_character = ['.', '_', '+', '{', '', '}', '"', '?', '>',
                          '<', ',', '-']
 
-    replace_character.each do |character|
-      file.gsub!(character, '')
-    end
+    replace_character.each { |character| file.gsub!(character, '') }
   end
 
 end
