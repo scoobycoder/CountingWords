@@ -46,7 +46,20 @@ class Counter
   end
 
   def select_words(opened_file)
-    opened_file.read.split(' ')
+    file = opened_file.read
+
+    replace_special_characters(file)
+
+    file.split(' ')
+  end
+
+  def replace_special_characters(file)
+    replace_character = ['.', '_', '+', '{', '', '}', '"', '?', '>',
+                         '<', ',', '-']
+
+    replace_character.each do |character|
+      file.gsub!(character, '')
+    end
   end
 
 end

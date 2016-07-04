@@ -17,14 +17,13 @@ def word_list
   %{36 - of
 32 - the
 26 - to
-21 - I
+22 - I
 19 - and
 16 - a
 13 - in
 11 - our
-10 - their
+10 - it
 8 - this
-7 - it
 6 - with
 5 - on
 4 - own
