@@ -7,16 +7,13 @@ class Counter
   def count_all_words
     all_word_counts = {}
 
-    @file_contents.each {|word| all_word_counts.merge! count_word(word) }
+    @file_contents.each {|word| all_word_counts.merge! count(word) }
     all_word_counts
   end
 
   private
-  def count(word)
-    count_word(word)
-  end
 
-  def count_word(word)
+  def count(word)
     word_hash = {}
     words = @file_contents.select { |w| w == word }
     word_hash.merge! ({words.count => word})
