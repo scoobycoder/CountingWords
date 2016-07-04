@@ -4,7 +4,7 @@ require './counter'
 describe 'Count Words' do
 
   before do
-    @counter = Counter.new
+    @counter = Counter.new('./speech.txt')
   end
 
   it 'should return a count one 1 for "President"' do
