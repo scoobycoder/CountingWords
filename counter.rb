@@ -4,10 +4,6 @@ class Counter
     @file_contents = file_contents(file)
   end
 
-  def count(word)
-    count_word(word)
-  end
-
   def count_all_words
     all_word_counts = {}
 
@@ -16,6 +12,10 @@ class Counter
   end
 
   private
+  def count(word)
+    count_word(word)
+  end
+
   def count_word(word)
     word_hash = {}
     words = @file_contents.select { |w| w == word }
