@@ -4,22 +4,27 @@ class Counter
     @file_contents = file_contents(file)
   end
 
-  def word_list
-    words = ""
-
-    numbers_and_words = count_all_words
-
+  def list_words
     word_array = []
 
-    numbers_and_words.each_pair do |key, value|
+    order_words(word_array)
+    create_list_of_words(word_array)
+  end
+
+  private
+
+  def order_words(word_array)
+    count_all_words.each_pair do |key, value|
       word_array << value
       word_array << key
     end
+  end
 
+  def create_list_of_words(word_array)
+    words = ""
     while word_array.length > 0 do
       words += "#{word_array.pop} - #{word_array.pop}\n"
     end
-
     words
   end
 
@@ -29,8 +34,6 @@ class Counter
     @file_contents.each { |word| all_word_counts.merge! count(word) }
     all_word_counts.sort.to_h
   end
-
-  private
 
   def count(word)
     word_hash = {}

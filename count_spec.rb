@@ -8,7 +8,7 @@ describe 'Count Words' do
   end
 
   it 'should list all words in order of occurance descending' do
-    expect(@counter.word_list).to eq(word_list)
+    expect(@counter.list_words).to eq(word_list)
   end
 
 end
