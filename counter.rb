@@ -38,7 +38,6 @@ class Counter
   def count(word)
     word_hash = {}
     words = @file_contents.select { |w| w == word }
-    # word_hash.merge! ({words.count => word})
     word_hash.merge! ({word => words.count})
   end
 
