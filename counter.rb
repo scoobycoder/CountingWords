@@ -15,8 +15,8 @@ class Counter
 
   def order_words(word_array)
     count_all_words.each_pair do |key, value|
-      word_array << value
       word_array << key
+      word_array << value
     end
   end
 
@@ -25,6 +25,7 @@ class Counter
     while word_array.length > 0 do
       words += "#{word_array.pop} - #{word_array.pop}\n"
     end
+    puts words
     words
   end
 
@@ -32,13 +33,14 @@ class Counter
     all_word_counts = {}
 
     @file_contents.each { |word| all_word_counts.merge! count(word) }
-    all_word_counts.sort.to_h
+    all_word_counts.sort_by {|_key, value| value}.to_h
   end
 
   def count(word)
     word_hash = {}
     words = @file_contents.select { |w| w == word }
-    word_hash.merge! ({words.count => word})
+    # word_hash.merge! ({words.count => word})
+    word_hash.merge! ({word => words.count})
   end
 
   def file_contents(file_name)
@@ -55,7 +57,7 @@ class Counter
 
   def replace_special_characters(file)
     replace_character = ['.', '_', '+', '{', '', '}', '"', '?', '>',
-                         '<', ',', '-']
+                         '<', ',', '-', ':', '(', '&', '@#$%^*', '!', ';']
 
     replace_character.each { |character| file.gsub!(character, '') }
   end
