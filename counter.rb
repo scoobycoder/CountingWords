@@ -25,7 +25,6 @@ class Counter
     while word_array.length > 0 do
       words += "#{word_array.pop} - #{word_array.pop}\n"
     end
-    puts words
     words
   end
 
@@ -33,7 +32,7 @@ class Counter
     all_word_counts = {}
 
     @file_contents.each { |word| all_word_counts.merge! count(word) }
-    all_word_counts.sort_by {|_key, value| value}.to_h
+    all_word_counts.sort_by {|_key, value| [value, _key]}.to_h
   end
 
   def count(word)
